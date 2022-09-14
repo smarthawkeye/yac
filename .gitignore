@@ -1,0 +1,23 @@
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+.mvn
+mvnw
+mvnw.cmd
+
+### Log ###
+/logs/
+
+### Target ###
+/target/
+
+### Test ###
+*/test/
+
+### ResultFile ###
+/docs/results/
+
+### ExportFile ###
+/data/
