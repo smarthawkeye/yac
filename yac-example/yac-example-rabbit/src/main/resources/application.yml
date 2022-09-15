@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  rabbitmq:
+    host: elephant
+    port: 5672
+    username: panda
+    password: Rabbit1234!
+    virtual-host: panda
+#    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+      retry:
+        enabled: true
+yac:
+  rabbitmq:
+    exchange: ex_yac
+    routingKey: payload

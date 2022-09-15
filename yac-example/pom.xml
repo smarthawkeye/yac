@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yac</artifactId>
+        <groupId>io.github.smarthawkeye</groupId>
+        <version>0.1.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>yac-example</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>yac-example-oss</module>
+        <module>yac-example-celldbserver</module>
+        <module>yac-example-mail</module>
+        <module>yac-example-mqtt</module>
+        <module>yac-example-rabbit</module>
+        <module>yac-example-swagger</module>
+        <module>yac-example-scheduled</module>
+        <module>yac-example-redis</module>
+        <module>yac-example-influx</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

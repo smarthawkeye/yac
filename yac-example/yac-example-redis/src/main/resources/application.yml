@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  # Redis配置
+  redis:
+    host: elephant
+    port: 6377
+    jedis:
+      pool:
+        max-active: 100
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    password: Redis1234!
+    timeout: 5000
+    database: 0

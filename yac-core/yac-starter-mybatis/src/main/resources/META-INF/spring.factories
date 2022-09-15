@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.smarthawkeye.core.mybatis.config.MyBatisConfiguration
+
+

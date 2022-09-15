@@ -1,0 +1,9 @@
+server:
+  port: 8080
+yac:
+  influx:
+    readUrl: http://elephant:8086
+    writeUrl: http://elephant:8086
+    username: admin
+    password: ×××××[admin]
+    database: db_×××××_dev

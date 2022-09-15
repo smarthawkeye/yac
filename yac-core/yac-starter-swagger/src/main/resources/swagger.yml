@@ -1,0 +1,64 @@
+spring:
+  mvc:
+    pathmatch:
+      # 配置策略
+      matching-strategy: ant-path-matcher
+knife4j:
+  #开启增强配置
+  enable: true
+  #自定义文档
+  documents:
+    -
+      group: 2.X版本
+      name: 自定义说明
+      locations: classpath:markdown/*
+  setting:
+    language: zh-CN
+    enableSwaggerModels: true
+    swaggerModelName: 实体类列表
+    #自定义文档开启
+    enableDocumentManage: true
+    enableVersion: false
+    enableReloadCacheParameter: false
+    enableAfterScript: true
+    enableFilterMultipartApiMethodType: POST
+    enableFilterMultipartApis: false
+    #请求参数缓存开启
+    enableRequestCache: true
+    enableHost: false
+    enableHostText: 192.168.0.193:8000
+    #自定义主页内容
+    enableHomeCustom: true
+    homeCustomLocation: classpath:markdown/home.md
+    #搜索框开启
+    enableSearch: true
+    #自定义Footer
+    enableFooter: false
+    enableFooterCustom: true
+    footerCustomContent: Apache License 2.0 | Copyright  2019-[浙江八一菜刀股份有限公司](https://gitee.com/xiaoym/knife4j)
+    #动态参数开启
+    enableDynamicParameter: false
+    enableDebug: true
+    enableOpenApi: false
+    enableGroup: true
+  cors: true
+  #生产环境屏蔽
+  production: false
+  #开启Swagger的Basic认证功能,默认是false
+  basic:
+    enable: true
+    username: test
+    password: 12313
+yac:
+  swagger:
+    group:
+      -
+        groupName: 2.X版本
+        host: 自定义说明
+        basepackage: com.yac.example.swagger.controller
+        title:
+        description: miaoshu
+        version:
+        author:
+        authorUrl:
+        authorEmail:

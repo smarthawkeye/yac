@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yac-core</artifactId>
+        <groupId>io.github.smarthawkeye</groupId>
+        <version>0.1.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>yac-starter-celldb</artifactId>
+    <name>yac-starter-celldb</name>
+    <packaging>jar</packaging>
+    <description>celldb可用于存储栅格数据、高频时序数据，并提供云图数据压缩等算法</description>
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
+</project>

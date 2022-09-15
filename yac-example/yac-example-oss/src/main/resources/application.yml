@@ -1,0 +1,13 @@
+server:
+  port: 8080
+yac:
+  oss:
+    endpoint: http://elephant:9000/
+    accessKey: admin
+    secretKey: ×××××××[minio]
+    bucketName: test
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
