@@ -1,3 +1,4 @@
+*.yml
 *.iml
 **/target/
 /target/

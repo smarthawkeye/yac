@@ -9,5 +9,6 @@ package io.github.smarthawkeye.core.job.core;
  * @Date 2022/8/25 17:28
  * @Version V0.1.0
  */
-public interface ScheduledTaskJob extends Runnable{
+public abstract class ScheduledTaskJob implements Runnable {
+    public abstract void setParam(String param);
 }

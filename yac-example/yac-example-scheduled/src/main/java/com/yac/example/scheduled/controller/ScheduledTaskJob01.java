@@ -14,16 +14,23 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class ScheduledTaskJob01 implements ScheduledTaskJob {
-
+public class ScheduledTaskJob01 extends ScheduledTaskJob {
+    private String param;
     @Override
     public void run() {
         // TODO 要处理的业务逻辑
+        System.out.println("param = " + param);
         log.info("ScheduledTask => 01  run  当前线程名称 {} ", Thread.currentThread().getName());
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+
+    @Override
+    public void setParam(String param) {
+        this.param = param;
     }
 }

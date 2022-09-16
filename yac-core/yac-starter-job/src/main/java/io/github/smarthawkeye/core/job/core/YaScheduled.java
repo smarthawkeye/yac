@@ -64,6 +64,11 @@ public class YaScheduled {
      */
     private String description;
     /**
+     * scheduled.param
+     * 参数
+     */
+    private String param;
+    /**
      * scheduled.execTime
      * 任务执行时间
      */

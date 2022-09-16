@@ -32,9 +32,10 @@ public class ExampleController {
         scheduled.setType(1);
         scheduled.setJobName("job1");
         scheduled.setTaskKey("scheduledTaskJob01");
+        scheduled.setParam("param scheduledTaskJob01");
         long timeMillis = System.currentTimeMillis();
-        scheduled.setStartTime(new Date(timeMillis + 10000));
-        //    ls.add(scheduled);
+        scheduled.setStartTime(new Date(timeMillis + 5000));
+   //         ls.add(scheduled);
 // 2.动态创建指定cron;
 
         YaScheduled scheduled2 = new YaScheduled();
@@ -42,24 +43,27 @@ public class ExampleController {
         scheduled2.setType(2);
         scheduled2.setJobName("job2");
         scheduled2.setTaskKey("scheduledTaskJob02");
-        scheduled2.setCron("0/5 * * * * ?");
-        //ls.add(scheduled2);
+        scheduled2.setParam("param scheduledTaskJob02");
+        scheduled2.setCron("0/2 * * * * ?");
+        ls.add(scheduled2);
         // 3.指定间隔时间执行，间隔时间为前一次执行开始到下次任务开始时间;
         YaScheduled scheduled3 = new YaScheduled();
         scheduled3.setJobId(3);
         scheduled3.setType(3);
         scheduled3.setJobName("job3");
         scheduled3.setTaskKey("scheduledTaskJob02");
-        scheduled3.setPeriod(5000L);
-       //      ls.add(scheduled3);
+        scheduled3.setParam("param scheduledTaskJob03");
+        scheduled3.setPeriod(2000L);
+             ls.add(scheduled3);
         // 4.指定间隔时间执行一次任务，间隔时间为前一次任务完成到下一次开始时间
         YaScheduled scheduled4 = new YaScheduled();
         scheduled4.setJobId(4);
         scheduled4.setType(4);
         scheduled4.setJobName("job4");
         scheduled4.setTaskKey("scheduledTaskJob01");
-        scheduled4.setPeriod(5000L);
-        ls.add(scheduled4);
+        scheduled4.setParam("param scheduledTaskJob04");
+        scheduled4.setPeriod(2000L);
+      //  ls.add(scheduled4);
 
         taskService.initAllTask(ls);
         return "success";

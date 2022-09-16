@@ -11,8 +11,12 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "yac.influx")
+@ConfigurationProperties(InfluxProperties.PREFIX)
 public class InfluxProperties {
+    /**
+     * 前缀
+     */
+    public static final String PREFIX = "yac.influx";
     /**
      * 只读Url
      */

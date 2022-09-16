@@ -1,7 +1,9 @@
 package io.github.smarthawkeye.core.job.core;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.scheduling.TriggerContext;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
@@ -165,7 +167,9 @@ public class ScheduledTaskServiceImpl implements ScheduledTaskService {
         String taskCron = scheduled.getCron();
         //获取需要定时调度的接口
 //        ScheduledTaskJob scheduledTaskJob = (ScheduledTaskJob) SpringContext.getBean(taskKey);
-        ScheduledTaskJob scheduledTaskJob = (ScheduledTaskJob) SpringUtil.getBean(taskKey);
+        ScheduledTaskJob scheduledTaskJobTemp = (ScheduledTaskJob) SpringUtil.getBean(taskKey);
+        ScheduledTaskJob scheduledTaskJob = BeanUtils.instantiateClass(scheduledTaskJobTemp.getClass());
+        scheduledTaskJob.setParam(scheduled.getParam());
         log.info(">>>>>> 任务 [ {} ] ,cron={}", scheduled.getJobName(), taskCron);
         //定时执行类型
         // 1.指定时间执行一次;

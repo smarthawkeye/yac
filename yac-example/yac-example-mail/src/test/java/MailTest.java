@@ -19,7 +19,13 @@ public class MailTest {
     @Test
     void send(){
         try {
-            template.sendSimpleMail("an0701@163.com","abc","sdfsdfsdf");
+           // template.sendSimpleMail("an0701@163.com","abcasdfaf","asdfasdfasdfadsf");
+
+          //  template.sendSimpleMail("coderzzg@163.com","abcasdfaf","asdfasdfasdfadsf");
+
+            template.sendSimpleMail("278729535@qq.com","abcasdfaf","asdfasdfasdfadsf");
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

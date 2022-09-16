@@ -7,9 +7,9 @@ spring:
       max-request-size: 100MB
 #邮件配置样例
   mail:
-    host: smtp.163.com
-    username: test@163.com
-    password: 123456
+    host: smtp.ym.163.com
+    username: alarm11@cloudansys.cn
+    password: phNYv5zYRt1
     port: 25
     properties:
       smtp:
