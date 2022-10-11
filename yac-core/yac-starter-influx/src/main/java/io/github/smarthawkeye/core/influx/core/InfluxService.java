@@ -1,5 +1,6 @@
 package io.github.smarthawkeye.core.influx.core;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.ObjectUtil;
 import io.github.smarthawkeye.core.influx.props.InfluxProperties;
@@ -138,12 +139,26 @@ public class InfluxService {
     }
 
     /**
-     * 指数据结构序列分页 TODO 待完善
+     * 指数据结构序列分页
+     * 此处分页有限制，总数量小于50万，大于50万用此方法存在问题
      *
      * @param wrapper 查询定义
      */
     public QuotaPageDataModel getQuotaPageDataModel(QueryWrapper wrapper) {
         QuotaPageDataModel dataModel = new QuotaPageDataModel();
+        // 先查询总数，再查询分页的内容
+        QueryWrapper countWrapper = new QueryWrapper();
+        countWrapper.setMeasurement(wrapper.getMeasurement());
+        countWrapper.addField(new Field("总数", "count(" + wrapper.getFields().get(1).getQueryName() + ")", "ct", "", 0));
+        countWrapper.setTags(wrapper.getTags());
+        countWrapper.setStartTime(wrapper.getStartTime());
+        countWrapper.setLeftEqual(wrapper.isLeftEqual());
+        countWrapper.setEndTime(wrapper.getEndTime());
+        countWrapper.setRightEqual(wrapper.isRightEqual());
+        countWrapper.setTagConnector(wrapper.getTagConnector());
+        List<List<Object>> countList = influxTemplate.queryTimeDataList(dataModel.getQuotas(), countWrapper);
+        Integer count = NumberUtil.round(countList.get(0).get(1).toString(), 0).intValue();
+
         List<List<Object>> datasList = influxTemplate.queryTimeDataList(dataModel.getQuotas(), wrapper);
         for (List<Object> datas : datasList) {
             Map<String, Object> dataMaps = new HashMap<>();
@@ -161,6 +176,14 @@ public class InfluxService {
             }
             dataModel.addData(dataMaps);
         }
+        dataModel.setTotal(count);
+        dataModel.setCurrent(wrapper.getCurrent());
+        dataModel.setSize(wrapper.getLimit());
+        if (count % wrapper.getLimit() > 0L) {
+            dataModel.setPageCount(count / wrapper.getLimit() + 1);
+        } else {
+            dataModel.setPageCount(count / wrapper.getLimit());
+        }
         return dataModel;
     }
 
@@ -175,8 +198,10 @@ public class InfluxService {
         }
         influxTemplate.saveOrUpdate(wrapper);
     }
+
     /**
      * 数据删除
+     *
      * @param wrapper
      **/
     public void delete(DeleteWrapper wrapper) {
