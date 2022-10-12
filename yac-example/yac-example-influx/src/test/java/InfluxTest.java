@@ -107,7 +107,8 @@ public class InfluxTest {
 
         wrapper.setMeasurement("raw_2");
         wrapper.setTags(tags);
-        wrapper.setLimit(10);
+        wrapper.setLimit(30);
+        wrapper.setCurrent(2);
         QuotaPageDataModel quotaPageDataModel = influxService.getQuotaPageDataModel(wrapper);
         String s = JSONUtil.toJsonStr(quotaPageDataModel, JSONConfig.create().setIgnoreNullValue(false));
         System.out.println("quotaPageDataModel dataModel = " + s);

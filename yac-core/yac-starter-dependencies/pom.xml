@@ -12,7 +12,7 @@
     <groupId>io.github.smarthawkeye</groupId>
     <artifactId>yac-starter-dependencies</artifactId>
     <name>yac-starter-dependencies</name>
-    <version>0.1.1</version>
+    <version>0.1.3</version>
     <packaging>pom</packaging>
     <description>yac-starter-dependencies</description>
     <url>https://github.com/smarthawkeye/yac</url>
@@ -34,7 +34,7 @@
         <url>https://github.com/smarthawkeye/yac</url>
     </scm>
     <properties>
-        <yac.core.version>0.1.1</yac.core.version>
+        <yac.core.version>0.1.3</yac.core.version>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
