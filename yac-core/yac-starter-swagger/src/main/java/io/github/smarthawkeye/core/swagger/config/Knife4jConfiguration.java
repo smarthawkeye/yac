@@ -63,6 +63,8 @@ public class Knife4jConfiguration implements BeanFactoryAware {
                     .apis(RequestHandlerSelectors.basePackage(groupInfo.getBasepackage()))
                     .paths(PathSelectors.any())
                     .build()
+                    .securityContexts(securityContexts())
+                    .securitySchemes(securitySchemes())
                     //赋予插件体系
                     .extensions(openApiExtensionResolver.buildExtensions(groupInfo.getGroupName()));
             configurableBeanFactory.registerSingleton(groupInfo.getGroupName(), docket);
