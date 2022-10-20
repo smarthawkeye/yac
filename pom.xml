@@ -7,7 +7,7 @@
     <artifactId>yac</artifactId>
     <name>yac</name>
     <packaging>pom</packaging>
-    <version>0.1.4</version>
+    <version>0.1.4.1</version>
     <description>ya常用开发组件库</description>
     <url>https://github.com/smarthawkeye/yac</url>
     <licenses>
@@ -33,7 +33,7 @@
         <module>yac-code-generator</module>
     </modules>
     <properties>
-        <yac.core.version>0.1.4</yac.core.version>
+        <yac.core.version>0.1.4.1</yac.core.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <spring.boot.version>2.7.3</spring.boot.version>
