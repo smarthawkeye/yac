@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -158,7 +159,7 @@ public class InfluxService {
         countWrapper.setTagConnector(wrapper.getTagConnector());
         List<List<Object>> countList = influxTemplate.queryTimeDataList(dataModel.getQuotas(), countWrapper);
         Integer count = NumberUtil.round(countList.get(0).get(1).toString(), 0).intValue();
-
+        dataModel.setQuotas(new ArrayList<>());
         List<List<Object>> datasList = influxTemplate.queryTimeDataList(dataModel.getQuotas(), wrapper);
         for (List<Object> datas : datasList) {
             Map<String, Object> dataMaps = new HashMap<>();
